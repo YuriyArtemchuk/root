@@ -1,0 +1,89 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+{% load static %}
+        <div id="breadcrumb" class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">{{ page_title }}</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="/cart">Cart</a></li>
+							<li class="active">Index</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="section">
+			<div class="container">
+				<div class="row text-center">
+                    <table id="cart-table" border="1">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Товар</th>
+								<th>Ціна</th>
+								<th>Дата</th>
+								<th>Статус</th>
+								<th>Вибір</th>
+								<th>Видалення</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for p in user_items %}
+							<tr>
+								<td class="id_cell">{{ p.id }}</td>
+								<td>{{ p.product.name }}</td>
+								<td class="price_cell">{{ p.product.price }}</td>
+								<td>{{ p.date }}</td>
+								<td>{{ p.status }}</td>
+								<td>
+									<input type="checkbox" class="check" value="yes" checked>
+								</td>
+								<td>
+									<input type="hidden" value="{{  p.id }}">
+									<button class="btn btn-sm btn-danger del-btn">
+										Видалити
+									</button>
+								</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+					<br>
+					<div>
+						<h5 style="font-size: 1.65rem; margin-top: 30px; color: darkcyan">
+							Загальна сума до сплати: &nbsp;
+							<span id="total" style="color: red">0.00 грн</span>
+						</h5>
+						<p style="margin-top: 20px">
+							<a id="bill-btn" href="orders/order/3,9,19350" class="btn btn-success">
+								Перейти до замовлення
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<style>
+			#cart-table {
+				width: 100%;
+			}
+			#cart-table th,
+			#cart-table td {
+				text-align: center;
+				font-size: 11pt;
+				padding: 5px;
+			}
+			#cart-table th {
+				color: darkcyan;
+				font-style: italic;
+			}
+			#cart-table td {
+				color: navy;
+			}
+		</style>
+		<script src="{% static 'js/calc_cart_items.js' %}"></script>
+		<script src="{% static 'js/del_cart_item.js' %}"></script>
+{% endblock content %}

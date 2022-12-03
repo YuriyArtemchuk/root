@@ -1,0 +1,81 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+        <div id="breadcrumb" class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">{{ page_title }}</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="/home">Home</a></li>
+							<li class="active">Contacts</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="section">
+			<div class="container">
+				<div class="row text-center">
+					<!-- Content Contacts -->
+                     <form action="/home/contacts" method="post">
+					  {% csrf_token %}
+					  <p style="color: purple">
+						  <label for="email">
+							  Введіть Ваш E-mail для зв'язку з Вами
+						  </label>
+						  <br>
+						  <input type="email" id="email" name="email" class="inp" required>
+						  <span id="email-err" class="error"></span>
+					  </p>
+
+					  <div class="mb-3" style="color: purple">
+						  <label for="message">
+							  Напишить Ваше повідомлення <br>
+							  Ми обов'язково з Вами зв'яжемся!
+						  </label>
+						  <br>
+						  <textarea class="form-control mes" id="message" name="message" rows="4" required></textarea>
+					  </div>
+					  <p>
+						  <input type="submit" id="submit" value="Відправити"
+							class="btn btn-success my-btn">
+						  <input type="reset" id="reset" value="Відмінити"
+							class="btn btn-danger my-btn">
+					  </p>
+				  </form>
+					<!-- End Content Contacts -->
+				</div>
+			</div>
+		</div>
+		<style>
+			.my-btn {
+			width: 150px;
+			margin-top: 15px;
+			margin-right: 5px;
+			}
+			.inp {
+			width: 400px;
+			padding: 5px;
+			text-align: center;
+			font: 13pt 'Trebuchet MS';
+			color: blue;
+			border-radius: 10px;
+			background: whitesmoke;
+
+			}
+			label {
+			font: italic 13pt 'Trebuchet MS';
+			margin-bottom: 5px;
+			color: purple;
+			}
+			.mes {
+			width: 600px;
+			border-radius: 10px;
+			font: italic 12pt 'Trebuchet MS';
+			background: whitesmoke;
+			margin: auto;
+
+			}
+		</style>
+{% endblock content %}

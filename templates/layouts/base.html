@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="uk">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>OnlineShop - {{ page_title }}</title>
+ 		<!-- Google font -->
+ 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Bootstrap -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+ 		<!-- Slick -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/slick.css' %}"/>
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/slick-theme.css' %}"/>
+ 		<!-- nouislider -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min.css' %}"/>
+ 		<!-- Font Awesome Icon -->
+ 		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+ 		<!-- Custom stlylesheet -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+    </head>
+	<body>
+		<!-- HEADER -->
+		{% include 'fragments/header.html' %}
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		{% include 'fragments/navigation.html' %}
+		<!-- /NAVIGATION -->
+
+		<!-- CONTENT PLACEHOLDER -->
+		{% block content %}{% endblock content %}
+		<!-- /CONTENT PLACEHOLDER -->
+
+		<!-- NEWSLETTER -->
+		{% include 'fragments/newsletter.html' %}
+		<!-- /NEWSLETTER -->
+
+		<!-- FOOTER -->
+		{% include 'fragments/footer.html' %}
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+
+
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/slick.min.js' %}"></script>
+		<script src="{% static 'js/nouislider.min.js' %}"></script>
+		<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

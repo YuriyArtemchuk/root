@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+        <div id="breadcrumb" class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header" style="color: {{ result_color }}">
+                            {{ page_title }}
+                        </h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="/home/contacts">Контакти</a></li>
+							<li class="active">Звіт</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="section">
+			<div class="container">
+            {% if status == 1 %}
+				<div class="row text-center">
+                    <h3 style="color: darkcyan">Дякуємо за Ваше звернення!</h3>
+                    <hr>
+                    <h4 style="color: gray">
+                        Ми отримали від Вас звернення! <br>
+                        Ваша контактна E-mail адреса:
+                        <span style="color: blue">{{ email }}</span>! <br>
+                    </h4>
+                    <hr>
+                    <h4 style="color: darkcyan">
+                        Наш менеджер зв'яжеться з Вами  <br>
+                        протягом наближчих 60 хвилин!
+                    </h4>
+				</div>
+             {% elif status == 2 %}
+                <div class="row text-center">
+                    <h3 style="color: {{ result_color }}">Нажаль щось пішло не так... <br>
+                        Повторіть ваше звернення!</h3>
+				</div>
+             {% endif %}
+			</div>
+		</div>
+{% endblock content %}
+
+
+

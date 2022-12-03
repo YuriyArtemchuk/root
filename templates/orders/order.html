@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+        <div id="breadcrumb" class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">{{ page_title }}</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="/orders">Orders</a></li>
+							<li class="active">Order</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="section">
+			<div class="container">
+				<div class="row text-center">
+                <!--  -->
+					{% for item in final_list%}
+					<div class="card mb-3 col-md-4">
+						<div class="row g-0">
+							<div class="col-md-4">
+								<img src="/media/{{ item.product_photo }}"
+									alt="..."
+									width="100%"
+									class="img-fluid rounded-start">
+							</div>
+							<div class="col-md-8">
+								<div class="card-body">
+									<h4 class="card-title" style="color: purple">
+										{{ item.product_name }}
+									</h4>
+									<h5 style="color: darkcyan">
+										{{ item.category_name }}
+									</h5>
+									<h4 style="color: blue">
+										{{ item.product_price }} грн.
+									</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+
+					<div style="clear: both"></div>
+
+					<h4 style="color: gray; margin-top: 30px">
+						Загальна вартість:
+						<span style="color: red">
+							{{ total_price }}
+						</span>
+					</h4>
+
+					<p style="margin-top: 30px">
+						<a href="/orders/confirm/{{ init_list }}" class="btn btn-success">
+							Підтвердження замовлення
+						</a>
+						&nbsp;
+						<a href="/cart" class="btn btn-danger">
+							Повернутись до кошика
+						</a>
+					</p>
+
+				</div>
+			</div>
+		</div>
+{% endblock content %}
